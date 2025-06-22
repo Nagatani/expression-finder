@@ -1,0 +1,111 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+p {
+    text-align: center;
+    color: #555;
+    margin-top: 0;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #444;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+#result-container {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+#result ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#result li {
+    padding: 12px 5px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#result li:last-child {
+    border-bottom: none;
+}
+
+.tex-format {
+    padding-bottom: 8px;
+    min-height: 2em; /* KaTeX描画中のガタつきを防ぐ */
+}
+
+.prog-format {
+    font-size: 0.8em;
+    background-color: #f0f2f5;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #3d3d3d;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    margin-top: 4px;
+}
