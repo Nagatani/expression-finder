@@ -3,14 +3,11 @@ use std::collections::{HashMap, HashSet};
 use wasm_bindgen::prelude::*;
 
 /// プログラミング形式(prog)とLaTeX形式(tex)の数式を保持する構造体
-/// `#[wasm_bindgen]` を付けることで、この構造体をJavaScript側でオブジェクトとして扱えるようにする
 #[wasm_bindgen]
 #[derive(Clone, PartialEq, Eq, Hash, Debug)]
 pub struct Expression {
-    /// JavaScript側から `expr.prog` でアクセスできるようになる
     #[wasm_bindgen(getter_with_clone)]
     pub prog: String,
-    /// JavaScript側から `expr.tex` でアクセスできるようになる
     #[wasm_bindgen(getter_with_clone)]
     pub tex: String,
 }
@@ -22,14 +19,8 @@ pub fn set_panic_hook() {
 }
 
 /// JavaScriptから呼び出されるエントリーポイント関数
-/// `Expression`オブジェクトの配列を返すように変更
 #[wasm_bindgen]
 pub fn find_calculation_wasm(numbers: &[u32], target: i32, limit: usize) -> Vec<Expression> {
-    find_calculation_advanced(numbers, target, limit)
-}
-
-/// `Expression`オブジェクトの配列を返すように変更
-fn find_calculation_advanced(numbers: &[u32], target: i32, limit: usize) -> Vec<Expression> {
     if numbers.is_empty() || limit == 0 {
         return Vec::new();
     }
@@ -44,7 +35,7 @@ fn find_calculation_advanced(numbers: &[u32], target: i32, limit: usize) -> Vec<
 
         let nums: Vec<u32> = p.into_iter().cloned().collect();
         let mut cache = HashMap::new();
-        let results = solve_advanced(&nums, &mut cache);
+        let results = solve(&nums, &mut cache);
 
         if let Some(exprs) = results.get(&target) {
             for expr in exprs {
@@ -59,8 +50,7 @@ fn find_calculation_advanced(numbers: &[u32], target: i32, limit: usize) -> Vec<
     found_expressions.into_iter().collect()
 }
 
-// これ以降の関数も、すべてExpression構造体を扱うように変更されています
-fn solve_advanced(
+fn solve(
     nums: &[u32],
     cache: &mut HashMap<Vec<u32>, HashMap<i32, HashSet<Expression>>>,
 ) -> HashMap<i32, HashSet<Expression>> {
@@ -83,8 +73,8 @@ fn solve_advanced(
     for i in 1..n {
         let left_nums = &nums[..i];
         let right_nums = &nums[i..];
-        let left_results = solve_advanced(left_nums, cache);
-        let right_results = solve_advanced(right_nums, cache);
+        let left_results = solve(left_nums, cache);
+        let right_results = solve(right_nums, cache);
 
         for (&val1, exprs1) in &left_results {
             for (&val2, exprs2) in &right_results {

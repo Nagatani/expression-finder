@@ -5,7 +5,7 @@ const numbersInput = document.getElementById('numbers');
 const targetInput = document.getElementById('target');
 const resultOutput = document.getElementById('result');
 
-// Web Workerを「モジュール」として生成
+// Web Worker生成
 const worker = new Worker('./worker.js', { type: 'module' });
 
 // 計算ボタンを初期状態では無効化しておく
@@ -93,9 +93,8 @@ function displayResults(results) {
     progContainer.appendChild(codeElement);
 
     try {
-      console.log("Rendering with KaTeX:", expr.tex);
+      // console.log("Rendering with KaTeX:", expr.tex);
       // KaTeXで数式を描画
-      
       katex.render(expr.tex, texContainer, {"displayMode":true,"leqno":false,"fleqn":false,"throwOnError":true,"errorColor":"#cc0000","strict":"warn","output":"mathml","trust":false,"macros":{"\\f":"#1f(#2)"}})
     } catch (e) {
       console.error("KaTeX rendering error:", e);
@@ -109,5 +108,5 @@ function displayResults(results) {
 
     currentIndex++;
     resultCountSpan.textContent = currentIndex;
-  }, 100); // 表示間隔を少しゆっくりに
+  }, 50);
 }
