@@ -4,7 +4,7 @@ export function set_panic_hook(): void;
 /**
  * JavaScriptから呼び出されるエントリーポイント関数
  */
-export function find_calculation_wasm(numbers: Uint32Array, target: number, limit: number): Expression[];
+export function find_calculation(numbers: Uint32Array, target: number, limit: number): Expression[];
 /**
  * プログラミング形式(prog)とLaTeX形式(tex)の数式を保持する構造体
  */
@@ -24,7 +24,7 @@ export interface InitOutput {
   readonly __wbg_set_expression_prog: (a: number, b: number, c: number) => void;
   readonly __wbg_get_expression_tex: (a: number) => [number, number];
   readonly __wbg_set_expression_tex: (a: number, b: number, c: number) => void;
-  readonly find_calculation_wasm: (a: number, b: number, c: number, d: number) => [number, number];
+  readonly find_calculation: (a: number, b: number, c: number, d: number) => [number, number];
   readonly set_panic_hook: () => void;
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;
   readonly __wbindgen_malloc: (a: number, b: number) => number;

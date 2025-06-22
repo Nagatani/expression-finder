@@ -120,10 +120,10 @@ function getArrayJsValueFromWasm0(ptr, len) {
  * @param {number} limit
  * @returns {Expression[]}
  */
-export function find_calculation_wasm(numbers, target, limit) {
+export function find_calculation(numbers, target, limit) {
     const ptr0 = passArray32ToWasm0(numbers, wasm.__wbindgen_malloc);
     const len0 = WASM_VECTOR_LEN;
-    const ret = wasm.find_calculation_wasm(ptr0, len0, target, limit);
+    const ret = wasm.find_calculation(ptr0, len0, target, limit);
     var v2 = getArrayJsValueFromWasm0(ret[0], ret[1]).slice();
     wasm.__wbindgen_free(ret[0], ret[1] * 4, 4);
     return v2;
