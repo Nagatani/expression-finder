@@ -1,5 +1,5 @@
 // WASMモジュールをWorkerのスコープにインポートします
-import init, { find_calculation_wasm } from './pkg/expression_finder.js';
+import init, { find_calculation } from './pkg/expression_finder.js';
 
 // Workerが生成されたら、まずWASMモジュールを初期化します
 async function initialize() {
@@ -15,8 +15,8 @@ self.onmessage = (event) => {
     const { numbers, target } = event.data;
     
     try {
-        // Rust(WASM)の計算関数を呼び出します。結果の最大数は100に固定します。
-        const results = find_calculation_wasm(new Uint32Array(numbers), target, 100);
+        // WASMの計算関数を呼び出します。結果の最大数は100に固定します。
+        const results = find_calculation(new Uint32Array(numbers), target, 100);
 
         // console.log('Worker received data:', results);
         // results.forEach((result, index) => {

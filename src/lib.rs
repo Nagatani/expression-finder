@@ -20,7 +20,7 @@ pub fn set_panic_hook() {
 
 /// JavaScriptから呼び出されるエントリーポイント関数
 #[wasm_bindgen]
-pub fn find_calculation_wasm(numbers: &[u32], target: i32, limit: usize) -> Vec<Expression> {
+pub fn find_calculation(numbers: &[u32], target: i32, limit: usize) -> Vec<Expression> {
     if numbers.is_empty() || limit == 0 {
         return Vec::new();
     }
