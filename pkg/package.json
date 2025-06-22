@@ -1,7 +1,12 @@
 {
   "name": "expression-finder",
   "type": "module",
+  "description": "Solve expressions",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nagatani/expression-finder"
+  },
   "files": [
     "expression_finder_bg.wasm",
     "expression_finder.js",

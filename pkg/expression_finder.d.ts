@@ -3,23 +3,15 @@
 export function set_panic_hook(): void;
 /**
  * JavaScriptから呼び出されるエントリーポイント関数
- * `Expression`オブジェクトの配列を返すように変更
  */
 export function find_calculation_wasm(numbers: Uint32Array, target: number, limit: number): Expression[];
 /**
  * プログラミング形式(prog)とLaTeX形式(tex)の数式を保持する構造体
- * `#[wasm_bindgen]` を付けることで、この構造体をJavaScript側でオブジェクトとして扱えるようにする
  */
 export class Expression {
   private constructor();
   free(): void;
-  /**
-   * JavaScript側から `expr.prog` でアクセスできるようになる
-   */
   prog: string;
-  /**
-   * JavaScript側から `expr.tex` でアクセスできるようになる
-   */
   tex: string;
 }
 

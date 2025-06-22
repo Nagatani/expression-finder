@@ -115,7 +115,6 @@ function getArrayJsValueFromWasm0(ptr, len) {
 }
 /**
  * JavaScriptから呼び出されるエントリーポイント関数
- * `Expression`オブジェクトの配列を返すように変更
  * @param {Uint32Array} numbers
  * @param {number} target
  * @param {number} limit
@@ -135,7 +134,6 @@ const ExpressionFinalization = (typeof FinalizationRegistry === 'undefined')
     : new FinalizationRegistry(ptr => wasm.__wbg_expression_free(ptr >>> 0, 1));
 /**
  * プログラミング形式(prog)とLaTeX形式(tex)の数式を保持する構造体
- * `#[wasm_bindgen]` を付けることで、この構造体をJavaScript側でオブジェクトとして扱えるようにする
  */
 export class Expression {
 
@@ -159,7 +157,6 @@ export class Expression {
         wasm.__wbg_expression_free(ptr, 0);
     }
     /**
-     * JavaScript側から `expr.prog` でアクセスできるようになる
      * @returns {string}
      */
     get prog() {
@@ -175,7 +172,6 @@ export class Expression {
         }
     }
     /**
-     * JavaScript側から `expr.prog` でアクセスできるようになる
      * @param {string} arg0
      */
     set prog(arg0) {
@@ -184,7 +180,6 @@ export class Expression {
         wasm.__wbg_set_expression_prog(this.__wbg_ptr, ptr0, len0);
     }
     /**
-     * JavaScript側から `expr.tex` でアクセスできるようになる
      * @returns {string}
      */
     get tex() {
@@ -200,7 +195,6 @@ export class Expression {
         }
     }
     /**
-     * JavaScript側から `expr.tex` でアクセスできるようになる
      * @param {string} arg0
      */
     set tex(arg0) {
