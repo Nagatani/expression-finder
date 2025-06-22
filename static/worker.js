@@ -36,6 +36,7 @@ self.onmessage = (event) => {
         self.postMessage({ type: 'result', payload: plain_results });
 
     } catch (e) {
+        console.error('Error in worker:', e);
         // 計算中にエラーが発生した場合、エラー情報をメインスレッドに送信します
         self.postMessage({ type: 'error', payload: e.toString() });
     }

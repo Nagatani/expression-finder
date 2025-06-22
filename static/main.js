@@ -5,6 +5,9 @@ const numbersInput = document.getElementById('numbers');
 const targetInput = document.getElementById('target');
 const resultOutput = document.getElementById('result');
 
+// 計算可能な数字の最大個数を設定
+const MAX_NUMBERS_ALLOWED = 5;
+
 // Web Worker生成
 const worker = new Worker('./worker.js', { type: 'module' });
 
@@ -45,6 +48,12 @@ solveButton.addEventListener('click', () => {
     .map(s => parseInt(s.trim(), 10))
     .filter(n => !isNaN(n));
 
+if (numbers.length > MAX_NUMBERS_ALLOWED) {
+        resultOutput.innerHTML = `<p>エラー: 数字の個数は${MAX_NUMBERS_ALLOWED}個以下にしてください。（計算量が大きすぎるため）</p>`;
+        solveButton.disabled = false;
+        solveButton.textContent = '計算実行';
+        return;
+    }
   if (isNaN(target) || numbers.length === 0) {
     resultOutput.textContent = 'エラー: 数字と目標値を正しく入力してください。';
     solveButton.disabled = false;
