@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ターゲットナンバー・ソルバー</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <main>
+        <h1>Expression Finder</h1>
+        <p>与えられた数字をすべて使って目標値を作る計算式を探します。（最大100件）</p>
+        
+        <div class="input-group">
+            <label for="numbers">数字リスト (カンマ区切り):</label>
+            <input type="text" id="numbers" value="1, 2, 3, 4">
+        </div>
+        
+        <div class="input-group">
+            <label for="target">目標値:</label>
+            <input type="number" id="target" value="10">
+        </div>
+        
+        <button id="solve-button">計算実行</button>
+        
+        <div id="result-container">
+            <h2>結果</h2>
+            <div id="result">ここに計算結果が表示されます。</div>
+        </div>
+    </main>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

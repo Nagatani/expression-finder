@@ -1,0 +1,15 @@
+{
+  "name": "expression-finder",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "expression_finder_bg.wasm",
+    "expression_finder.js",
+    "expression_finder.d.ts"
+  ],
+  "main": "expression_finder.js",
+  "types": "expression_finder.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
